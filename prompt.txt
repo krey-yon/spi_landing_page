@@ -1,0 +1,71 @@
+{
+    overall_high_level_css_and_concept:{
+    font : Monument Grotesk
+    color pallate: {
+        BackgroundColorPalette: ["rgb(13, 13, 18)", "rgb(0, 255, 126)","rgba(84, 95, 213, 0.13)","rgba(255, 255, 255, 0.3)","rgb(24, 24, 28)","rgb(34, 197, 94)","rgb(222, 253, 238)","rgb(9, 37, 37)","rgba(13, 13, 18, 0.5)"],
+        TextColorPalette: ["rgb(0, 0, 0)","rgb(222, 253, 238)","rgb(0, 255, 126)","rgb(9, 37, 37)","rgb(26, 41, 65)","rgb(74, 222, 128)","rgba(255, 255, 255, 0.6)","rgb(13, 13, 18)","rgb(177, 177, 177)"],
+        BorderColorPalette: ["rgb(229, 231, 235)","rgb(0, 255, 126)","rgb(34, 197, 94)","rgba(255, 255, 255, 0.8)"]
+     },
+    conceptToUseInBuildingLandingPage: {
+    "Neo-Brutalism",
+    "Soft Neomorphism",
+    "Futuristic Gradient Mesh",
+    "Organic Blob Containers",
+    "Dark Mode with Glow Accents",
+    "Cyberpunk Color Palette",
+    "High-Contrast Typography",
+    "Micro-Glassmorphism",
+    "Asymmetric Layout"
+     }
+     Overall_Structure:{
+        1. Hero — What it is + Why it matters
+        2. Features — What we offer
+        3. SDK Integration — Why developers love us
+        4. Social Proof / Proof of Reliability / Tech advantage
+        5. Contact + Footer
+     }
+     information:{
+     -> Payments That Delight Customers and Grow Your Business Automatically
+     -> Accept Solana payments with instant settlement, automatic rewards, and smarter customer retention — all with one simple integration.
+     -> Explore the SDK →
+     -> Feature Block 1 — Loyalty Engine
+     Custom Loyalty Programs, Tailored to Your Business
+     Choose between multiple algorithms
+     Tier-based, spend-based, or frequency-based rewards
+     Real-time redemption
+     Fully on-chain or hybrid
+     -> Feature Block 2 — Cashback System
+     Cashback That Feels Instant
+     Customers earn while they spend
+     Configurable percentage
+     Auto credited on every payment
+     Increases return customers & sales velocity
+     -> Feature Block 3 — Dynamic pNFTs
+     Dynamic pNFTs for Merchants (and their customers)
+     Auto-minted after each purchase
+     Metadata updates with loyalty points, tiers, or order history
+     Can act as membership cards, VIP passes, or reward tokens
+     Unlock new marketing channels
+     -> ⭐ PAGE 3 — SDK / DEVELOPER SECTION
+     🎯 Goal:
+     Communicate:
+     ➡ “You can integrate this in minutes, not days.”
+     ➡ “We’re developer-friendly.”
+     -> Section Title
+     Integrate Payments in Minutes
+     Subheadline
+     Our SDK lets you accept payments, reward customers, and mint pNFTs — all with a single constructor.
+     -> “Why choose our technology?”
+     Section Title
+     Built for Performance. Designed for Growth. Trusted by Solana tech.
+     -> PAGE 5 — CONTACT + FOOTER
+     Contact Box
+     Let’s help you grow your business with smarter payments.
+     Name
+     Email
+     Business name
+     Message box
+     CTA: Submit
+     }
+    }
+}
