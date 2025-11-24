@@ -1,238 +1,26 @@
 @import "tailwindcss";
 
 :root {
-    --bg-primary: rgb(13, 13, 18);
-    --bg-secondary: rgb(24, 24, 28);
-    --accent-green: rgb(0, 255, 126);
-    --accent-green-dark: rgb(34, 197, 94);
-    --text-primary: rgb(222, 253, 238);
-    --text-secondary: rgba(255, 255, 255, 0.6);
-    --text-muted: rgb(177, 177, 177);
-    --border-green: rgb(0, 255, 126);
-    --glow-green: rgba(0, 255, 126, 0.3);
-    --glass-bg: rgba(255, 255, 255, 0.3);
-    --purple-glow: rgba(84, 95, 213, 0.13);
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
-html,
-body {
-    max-width: 100vw;
-    overflow-x: hidden;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
 
 body {
-    font-family:
-        "Space Grotesk",
-        "Monument Grotesk",
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.6;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--bg-secondary);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--accent-green);
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-green-dark);
-}
-
-/* Glow Effects */
-.glow-green {
-    box-shadow:
-        0 0 20px var(--glow-green),
-        0 0 40px var(--glow-green);
-}
-
-.glow-text {
-    text-shadow:
-        0 0 20px var(--accent-green),
-        0 0 40px var(--accent-green);
-}
-
-/* Glassmorphism */
-.glass {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Neo-Brutalism Buttons */
-.neo-button {
-    position: relative;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.neo-button::before {
-    content: "";
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    width: 100%;
-    height: 100%;
-    background: var(--bg-secondary);
-    border: 2px solid var(--accent-green);
-    z-index: -1;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.neo-button:hover::before {
-    top: 0;
-    left: 0;
-}
-
-/* Gradient Mesh Background */
-.gradient-mesh {
-    background:
-        radial-gradient(
-            circle at 20% 50%,
-            rgba(0, 255, 126, 0.15) 0%,
-            transparent 50%
-        ),
-        radial-gradient(
-            circle at 80% 80%,
-            rgba(84, 95, 213, 0.13) 0%,
-            transparent 50%
-        ),
-        radial-gradient(
-            circle at 40% 20%,
-            rgba(34, 197, 94, 0.1) 0%,
-            transparent 50%
-        );
-}
-
-/* Organic Blob Animations */
-@keyframes blob {
-    0%,
-    100% {
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-        transform: scale(1) rotate(0deg);
-    }
-    25% {
-        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-        transform: scale(1.05) rotate(90deg);
-    }
-    50% {
-        border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
-        transform: scale(0.95) rotate(180deg);
-    }
-    75% {
-        border-radius: 60% 40% 60% 40% / 70% 30% 50% 60%;
-        transform: scale(1.05) rotate(270deg);
-    }
-}
-
-.blob {
-    animation: blob 20s ease-in-out infinite;
-}
-
-/* Pulse Animation */
-@keyframes pulse-glow {
-    0%,
-    100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.5;
-    }
-}
-
-.pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
-}
-
-/* Float Animation */
-@keyframes float {
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-.float {
-    animation: float 6s ease-in-out infinite;
-}
-
-/* Gradient Text */
-.gradient-text {
-    background: linear-gradient(135deg, rgb(0, 255, 126), rgb(74, 222, 128));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* Code Block Styling */
-code {
-    font-family: "Space Grotesk", monospace;
-    background: var(--bg-secondary);
-    padding: 2px 6px;
-    border-radius: 4px;
-    border: 1px solid var(--accent-green);
-    color: var(--accent-green);
-    font-size: 0.9em;
-}
-
-/* Selection */
-::selection {
-    background: var(--accent-green);
-    color: var(--bg-primary);
-}
-
-::-moz-selection {
-    background: var(--accent-green);
-    color: var(--bg-primary);
-}
-
-/* Smooth Scroll */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Focus Styles */
-*:focus {
-    outline: 2px solid var(--accent-green);
-    outline-offset: 2px;
-}
-
-/* Responsive Typography */
-@media (max-width: 768px) {
-    html {
-        font-size: 14px;
-    }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-    html {
-        font-size: 15px;
-    }
-}
-
-@media (min-width: 1025px) {
-    html {
-        font-size: 16px;
-    }
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }

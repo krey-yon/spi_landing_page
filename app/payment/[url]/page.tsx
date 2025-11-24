@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useParams } from "next/navigation";
-import bs58 from "bs58";
+import bs58 from "bs58"
 import { Keypair, PublicKey } from "@solana/web3.js";
 import { SpiClient } from "@kreyon/spi_library/client";
 import confetti from "canvas-confetti";
@@ -16,26 +16,23 @@ const PaymentPage = () => {
     ? url.split("-")
     : ["", "0", "0"];
 
-  console.log(process.env.NEXT_PUBLIC_PRIVATE_KEY);
+  console.log(process.env.NEXT_PUBLIC_PRIVATE_KEY)
   const secret = bs58.decode(process.env.NEXT_PUBLIC_PRIVATE_KEY!);
   const keypair = Keypair.fromSecretKey(secret);
-  const spiClient = new SpiClient(keypair, "https://api.devnet.solana.com");
+  const spiClient = new SpiClient(keypair, "https://api.devnet.solana.com")
 
   const [timeLeft, setTimeLeft] = useState(300); // 5 minutes in seconds
-  const [paymentStatus, setPaymentStatus] = useState<
-    "pending" | "expired" | "completed"
-  >("pending");
+  const [paymentStatus, setPaymentStatus] = useState<"pending" | "expired" | "completed">(
+    "pending",
+  );
   const [isChecking, setIsChecking] = useState(false);
   const qrContainerRef = useRef<HTMLDivElement>(null);
 
   // QR Code generation effect
   useEffect(() => {
-    const qrcode = spiClient.get_qr_code(
-      `https://demo.spi.kreyon.in/api/create-transaction/${referenceKey}-${amount}-${discount}`,
-      350,
-    );
+    const qrcode = spiClient.get_qr_code(`https://spi.kreyon.in/api/create-transaction/${referenceKey}-${amount}-${discount}`, 350);
 
-    if (qrContainerRef.current) {
+    if(qrContainerRef.current){
       qrContainerRef.current.innerHTML = "";
       qrcode.append(qrContainerRef.current);
     }
@@ -83,13 +80,13 @@ const PaymentPage = () => {
         ...defaults,
         particleCount,
         origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-        colors: ["#A1BC98", "#778873", "#D2A855", "#D2DCB6"],
+        colors: ['#A1BC98', '#778873', '#D2A855', '#D2DCB6'],
       });
       confetti({
         ...defaults,
         particleCount,
         origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-        colors: ["#A1BC98", "#778873", "#D2A855", "#D2DCB6"],
+        colors: ['#A1BC98', '#778873', '#D2A855', '#D2DCB6'],
       });
     }, 250);
   };
@@ -97,13 +94,11 @@ const PaymentPage = () => {
   // Check payment status
   const handleCheckPayment = async () => {
     setIsChecking(true);
-
+    
     try {
       // Call the SPI client to check if payment is done
-      const isPaid = await spiClient.confirm_payment(
-        new PublicKey(referenceKey),
-      );
-
+      const isPaid = await spiClient.confirm_payment(new PublicKey(referenceKey));
+      
       if (isPaid) {
         // Payment successful!
         setPaymentStatus("completed");
@@ -111,10 +106,10 @@ const PaymentPage = () => {
         toast.success("🎉 Payment successful! Thank you!", {
           duration: 5000,
           style: {
-            background: "#A1BC98",
-            color: "#fff",
-            fontWeight: "bold",
-            padding: "16px",
+            background: '#A1BC98',
+            color: '#fff',
+            fontWeight: 'bold',
+            padding: '16px',
           },
         });
       } else {
@@ -122,10 +117,10 @@ const PaymentPage = () => {
         toast.error("⏳ Payment not received yet. Please try again.", {
           duration: 4000,
           style: {
-            background: "#C85A54",
-            color: "#fff",
-            fontWeight: "bold",
-            padding: "16px",
+            background: '#C85A54',
+            color: '#fff',
+            fontWeight: 'bold',
+            padding: '16px',
           },
         });
       }
@@ -134,10 +129,10 @@ const PaymentPage = () => {
       toast.error("❌ Error checking payment status. Please try again.", {
         duration: 4000,
         style: {
-          background: "#C85A54",
-          color: "#fff",
-          fontWeight: "bold",
-          padding: "16px",
+          background: '#C85A54',
+          color: '#fff',
+          fontWeight: 'bold',
+          padding: '16px',
         },
       });
     } finally {
@@ -186,8 +181,7 @@ const PaymentPage = () => {
               className="text-base mb-6"
               style={{ color: "#778873", opacity: 0.8 }}
             >
-              Your payment of ${amount} has been confirmed on the Solana
-              blockchain.
+              Your payment of ${amount} has been confirmed on the Solana blockchain.
             </p>
 
             <div
@@ -198,10 +192,7 @@ const PaymentPage = () => {
                 <span className="text-sm" style={{ color: "#778873" }}>
                   Amount Paid
                 </span>
-                <span
-                  className="text-xl font-bold"
-                  style={{ color: "#A1BC98" }}
-                >
+                <span className="text-xl font-bold" style={{ color: "#A1BC98" }}>
                   ${amount}
                 </span>
               </div>
@@ -210,10 +201,7 @@ const PaymentPage = () => {
                   <span className="text-sm" style={{ color: "#778873" }}>
                     Loyalty Tokens
                   </span>
-                  <span
-                    className="text-lg font-semibold"
-                    style={{ color: "#D2A855" }}
-                  >
+                  <span className="text-lg font-semibold" style={{ color: "#D2A855" }}>
                     🪙 {discount}%
                   </span>
                 </div>
@@ -306,46 +294,46 @@ const PaymentPage = () => {
                 className="w-64 h-64 rounded-xl flex items-center justify-center mb-4"
                 style={{ backgroundColor: "#FFFFFF" }}
               >*/}
-              <div className="text-center">
-                <div
-                  className="w-48 h-48 mx-auto mb-3 rounded-lg flex items-center justify-center"
-                  style={{
-                    backgroundColor: "#778873",
-                    backgroundImage: `repeating-linear-gradient(0deg, #FFFFFF 0px, #FFFFFF 10px, transparent 10px, transparent 20px),
+                <div className="text-center">
+                  <div
+                    className="w-48 h-48 mx-auto mb-3 rounded-lg flex items-center justify-center"
+                    style={{
+                      backgroundColor: "#778873",
+                      backgroundImage: `repeating-linear-gradient(0deg, #FFFFFF 0px, #FFFFFF 10px, transparent 10px, transparent 20px),
                       repeating-linear-gradient(90deg, #FFFFFF 0px, #FFFFFF 10px, transparent 10px, transparent 20px)`,
-                  }}
-                >
-                  <span className="text-6xl">📱</span>
+                    }}
+                  >
+                    <span className="text-6xl">📱</span>
+                  </div>
+                  <p
+                    className="text-xs font-medium"
+                    style={{ color: "#778873", opacity: 0.6 }}
+                  >
+                    QR Code
+                  </p>
                 </div>
+              </div>
+
+              {/* Reference Key */}
+              <div className="w-full">
                 <p
-                  className="text-xs font-medium"
+                  className="text-xs mb-2 text-center"
                   style={{ color: "#778873", opacity: 0.6 }}
                 >
-                  QR Code
+                  Reference ID
                 </p>
-              </div>
-            </div>
-
-            {/* Reference Key */}
-            <div className="w-full">
-              <p
-                className="text-xs mb-2 text-center"
-                style={{ color: "#778873", opacity: 0.6 }}
-              >
-                Reference ID
-              </p>
-              <div
-                className="rounded-lg p-3 break-all text-center"
-                style={{ backgroundColor: "#D2DCB6" }}
-              >
-                <code
-                  className="text-xs font-mono"
-                  style={{ color: "#778873" }}
+                <div
+                  className="rounded-lg p-3 break-all text-center"
+                  style={{ backgroundColor: "#D2DCB6" }}
                 >
-                  {referenceKey.substring(0, 32)}...
-                </code>
+                  <code
+                    className="text-xs font-mono"
+                    style={{ color: "#778873" }}
+                  >
+                    {referenceKey.substring(0, 32)}...
+                  </code>
+                </div>
               </div>
-            </div>
             {/*</div>*/}
 
             {/* Timer */}
