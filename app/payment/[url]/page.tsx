@@ -30,7 +30,7 @@ const PaymentPage = () => {
 
   // QR Code generation effect
   useEffect(() => {
-    const qrcode = spiClient.get_qr_code(`https://demo.spi.kreyon.in/api/create-transaction/${referenceKey}-${amount}-${discount}`, 350);
+    const qrcode = spiClient.get_qr_code(`https://spi-tawny.vercel.app/api/create-transaction/${referenceKey}-${amount}-${discount}`, 350);
 
     if(qrContainerRef.current){
       qrContainerRef.current.innerHTML = "";
